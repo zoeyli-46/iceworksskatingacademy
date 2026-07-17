@@ -67,17 +67,28 @@ export default function CoachesPage() {
 
       <section className="mx-auto max-w-6xl px-4 py-14 md:px-6">
         <div className="grid gap-8 md:grid-cols-3">
-          <div className="rounded-3xl border border-border bg-card p-8 text-center shadow-sm md:p-10">
-            <Snowflake className="mx-auto h-8 w-8 text-primary" />
-            <h2 className="mt-4 font-serif text-2xl font-bold text-navy">
-              Janis
-            </h2>
-            <p className="mt-2 text-xs font-bold text-primary">
-              Director
-            </p>
-            <p className="mx-auto mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-muted-foreground">
-              Janis has 40+ years of coaching, with National Level Coaching Certification. She encourages skaters of all levels to reach their highest potential in an encouraging and supportive environment and to develop a love of skating. She believes that skating builds character, confidence, and a sense of accomplishment, preparing children for life. She coaches all disciplines, including Learn to Skate, Star Skate to Competitive, Pre-Juvenile Competitive Skating, Juvenile, Pre-Novice, Novice, Junior, Special Olympics Level 1, and Power Skating. Additionally, she holds a diploma in social work to coach students with special needs. Janis&apos; awards and achievements include competitive coach for Pre Juvenile-Junior competitive and skaters qualifying for Challenge 2016.
-            </p>
+          <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-sm">
+            <div className="relative aspect-[4/5] w-full overflow-hidden bg-secondary">
+              <Image
+                src="/images/janis-coyle.jpg"
+                alt="Janis Coyle, Director at Ice Works Skating Academy"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="p-8 text-center md:p-10">
+              <div className="flex items-center justify-center gap-2">
+                <Snowflake className="h-4 w-4 text-primary" />
+                <span className="text-xs font-bold uppercase tracking-wider text-primary">Director</span>
+              </div>
+              <h2 className="mt-4 font-serif text-2xl font-bold text-navy">
+                Janis
+              </h2>
+              <p className="mx-auto mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-muted-foreground">
+                Janis has 40+ years of coaching, with National Level Coaching Certification. She encourages skaters of all levels to reach their highest potential in an encouraging and supportive environment and to develop a love of skating. She believes that skating builds character, confidence, and a sense of accomplishment, preparing children for life. She coaches all disciplines, including Learn to Skate, Star Skate to Competitive, Pre-Juvenile Competitive Skating, Juvenile, Pre-Novice, Novice, Junior, Special Olympics Level 1, and Power Skating. Additionally, she holds a diploma in social work to coach students with special needs. Janis&apos; awards and achievements include competitive coach for Pre Juvenile-Junior competitive and skaters qualifying for Challenge 2016.
+              </p>
+            </div>
           </div>
           {coaches.map((c) => (
             <article

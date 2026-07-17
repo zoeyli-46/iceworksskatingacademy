@@ -222,10 +222,13 @@ export default function HomePage() {
         <div className="relative mx-auto max-w-6xl">
           <div className="grid items-center gap-8 md:grid-cols-2">
             <div className="flex justify-center">
-              <div className="flex h-48 w-48 items-center justify-center rounded-full bg-white/10">
-                <span className="text-center text-xs font-semibold text-white/50">
-                  Profile picture
-                </span>
+              <div className="relative h-48 w-48 overflow-hidden rounded-full">
+                <Image
+                  src="/images/janis-coyle.jpg"
+                  alt="Janis Coyle, Director of Ice Works Skating Academy"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </div>
             <div className="text-white">
