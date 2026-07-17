@@ -192,31 +192,13 @@ function buildRegisterHref(row: ScheduleRow, sessionKey: SessionKey) {
   const meta = SESSION_META[sessionKey]
   const { sessions, total } = parseDetail(row[sessionKey])
   
-  // For discount rows, calculate the total by finding the base program above it
-  let finalTotal = total
-  if (row.isDiscount && row.program.includes('Learn to Skate')) {
-    // Find the previous Learn to Skate program row (non-discount)
-    const scheduleIndex = schedule.findIndex((s) => s === row)
-    if (scheduleIndex > 0) {
-      const prevRow = schedule[scheduleIndex - 1]
-      if (prevRow && !prevRow.isDiscount && prevRow.program.includes('Learn to Skate')) {
-        const { total: prevTotal } = parseDetail(prevRow[sessionKey])
-        if (prevTotal) {
-          const prevPrice = parseInt(prevTotal.replace(/\$|,/g, ''))
-          finalTotal = `$${prevPrice + 500}`
-        }
-      }
-    }
-  }
-  
   const params = new URLSearchParams()
   params.set('program', row.program)
   if (row.time) params.set('time', row.time)
   params.set('session', meta.label)
   params.set('dates', meta.dates)
   if (sessions) params.set('sessions', sessions)
-  if (finalTotal) params.set('total', finalTotal)
-  if (row.isDiscount) params.set('discount', '1')
+  if (total) params.set('total', total)
   if (row.program.toLowerCase().includes('adult')) params.set('adult', '1')
   return `/register?${params.toString()}`
 }
