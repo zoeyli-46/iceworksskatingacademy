@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { Mail, MapPin, Phone, Sparkles } from 'lucide-react'
 
 export const metadata = {
@@ -37,15 +36,6 @@ export default function ContactPage() {
               you&apos;re just starting out or looking to take your skating to
               the next level.
             </p>
-            <p className="text-lg font-bold text-navy">
-              Ready to register?
-            </p>
-            <Link
-              href="/register"
-              className="inline-block rounded-full bg-primary px-8 py-3 text-sm font-bold text-primary-foreground shadow-md transition-transform hover:scale-[1.03]"
-            >
-              Register Now
-            </Link>
           </div>
 
           <div className="space-y-4">
@@ -84,7 +74,7 @@ export default function ContactPage() {
               <div>
                 <p className="font-bold text-navy">Visit Us</p>
                 <p className="text-sm text-muted-foreground">
-                  Elvis Stojko Arena
+                  Ice Works Skating Academy
                   <br />
                   350 16th Ave, Richmond Hill, ON L4C 7A9
                 </p>
