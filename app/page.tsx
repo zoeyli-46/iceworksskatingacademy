@@ -123,7 +123,7 @@ export default function HomePage() {
               Programs
             </h2>
             <p className="mt-2 text-sm text-navy/70">
-              Skating lessons in Richmond Hill for all ages and skill levels at Elvis Stojko Arena | Fall 2026. Early Bird discount before August 1st.
+              Skating lessons in Richmond Hill for all ages and skill levels at Elvis Stojko Arena
             </p>
           </div>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
