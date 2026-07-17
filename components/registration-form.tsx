@@ -26,7 +26,7 @@ const labelCls = 'mb-1.5 block text-sm font-semibold text-navy'
 const inputCls =
   'w-full rounded-lg border border-input bg-card px-3.5 py-2.5 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-ring/30'
 
-function SkaterFields({ index }: { index: number }) {
+function SkaterFields({ index, isAdult = false }: { index: number; isAdult?: boolean }) {
   return (
     <div className="grid gap-4 sm:grid-cols-2">
       <div className="sm:col-span-2">
@@ -88,6 +88,36 @@ function SkaterFields({ index }: { index: number }) {
           ))}
         </select>
       </div>
+      {isAdult && (
+        <>
+          <div>
+            <label className={labelCls}>
+              Email Address <span className="text-primary">*</span>
+            </label>
+            <input
+              required
+              type="email"
+              name={`skater_${index}_email`}
+              className={inputCls}
+              placeholder="youremail@example.com"
+              aria-label="Skater email address"
+            />
+          </div>
+          <div>
+            <label className={labelCls}>
+              Phone Number <span className="text-primary">*</span>
+            </label>
+            <input
+              required
+              type="tel"
+              name={`skater_${index}_phone`}
+              className={inputCls}
+              placeholder="(123) 456-7890"
+              aria-label="Skater phone number"
+            />
+          </div>
+        </>
+      )}
     </div>
   )
 }
@@ -359,7 +389,7 @@ export function RegistrationForm({
                     <Trash2 className="h-3.5 w-3.5" /> Remove
                   </button>
                 )}
-                <SkaterFields index={i} />
+                <SkaterFields index={i} isAdult={isAdult} />
               </div>
             )
           })}
