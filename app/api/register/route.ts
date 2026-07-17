@@ -38,6 +38,7 @@ export async function POST(request: NextRequest) {
 
     // Save to Supabase
     let supabaseData = null
+    let supabaseError = false
     try {
       const supabase = await createClient()
       const { data, error } = await supabase
@@ -57,11 +58,13 @@ export async function POST(request: NextRequest) {
 
       if (error) {
         console.error('Supabase error:', error)
+        supabaseError = true
       } else {
         supabaseData = data
       }
     } catch (dbError) {
       console.error('Database connection error:', dbError)
+      supabaseError = true
     }
 
     // Build program summary for email
@@ -115,6 +118,7 @@ ${guardianDetails}
 This registration has been saved to the database.
 `
 
+    let emailError = false
     try {
       console.log('[v0] Email credentials check:', {
         user: process.env.GMAIL_USER ? 'set' : 'NOT SET',
@@ -128,9 +132,20 @@ This registration has been saved to the database.
         html: emailContent.replace(/\n/g, '<br>'),
       })
       console.log('[v0] Email sent successfully:', info.messageId)
-    } catch (emailError) {
-      console.error('[v0] Email sending error:', emailError)
-      // Don't fail the registration if email fails
+    } catch (err) {
+      console.error('[v0] Email sending error:', err)
+      emailError = true
+    }
+
+    // If either Supabase or email failed, return error
+    if (supabaseError || emailError) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'Your registration cannot be completed due to a technical issue. Please refresh this page and fill out the form to try again. If this fails, please contact us directly at iceworksskatingacademy@gmail.com.',
+        },
+        { status: 500 }
+      )
     }
 
     return NextResponse.json(
@@ -144,7 +159,10 @@ This registration has been saved to the database.
   } catch (error) {
     console.error('Registration error:', error)
     return NextResponse.json(
-      { error: 'Failed to process registration', details: error instanceof Error ? error.message : 'Unknown error' },
+      { 
+        success: false,
+        error: 'Your registration cannot be completed due to a technical issue. Please refresh this page and fill out the form to try again. If this fails, please contact us directly at iceworksskatingacademy@gmail.com.',
+      },
       { status: 500 }
     )
   }

@@ -175,6 +175,7 @@ export function RegistrationForm({
   const [agreed, setAgreed] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -256,17 +257,23 @@ export function RegistrationForm({
         }),
       })
 
-      if (!response.ok) {
-        console.error('Failed to submit registration')
+      const data = await response.json()
+
+      if (!response.ok || !data.success) {
+        setError(data.error || 'Failed to submit registration')
         setIsSubmitting(false)
+        window.scrollTo({ top: 0, behavior: 'smooth' })
         return
       }
       
+      setError(null)
       setSubmitted(true)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } catch (error) {
       console.error('Submission error:', error)
+      setError('Your registration cannot be completed due to a technical issue. Please refresh this page and fill out the form to try again. If this fails, please contact us directly at iceworksskatingacademy@gmail.com.')
       setIsSubmitting(false)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
     }
   }
 
@@ -321,6 +328,13 @@ export function RegistrationForm({
       onSubmit={handleSubmit}
       className="rounded-3xl border border-border bg-card p-6 shadow-sm md:p-8"
     >
+      {/* Error message */}
+      {error && (
+        <div className="mb-6 rounded-lg border border-red-200 bg-red-50 p-4">
+          <p className="text-sm text-red-800">{error}</p>
+        </div>
+      )}
+      
       {/* Program summary */}
       {hasSelection && (
         <div className="mb-8 rounded-2xl border border-primary/20 bg-secondary/40 p-5">
