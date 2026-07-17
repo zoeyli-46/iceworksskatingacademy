@@ -40,33 +40,6 @@ const programs = [
   },
 ]
 
-const benefits = [
-  {
-    title: 'Experienced Coach',
-    points: [
-      'Coaching skaters of all ages and abilities',
-      'Programs for Learn to Skate, Figure Skating, Skills, Dance, Power Skating, and more',
-      'Supporting skaters every step of the way—on and off the ice',
-    ],
-  },
-  {
-    title: 'Social Worker Special Needs',
-    points: [
-      'Extensive experience working with children and individuals with special needs',
-      'Compassionate, patient and inclusive approach',
-      'Creating a supportive environment where every skater belongs',
-    ],
-  },
-  {
-    title: 'Committed To Your Success',
-    points: [
-      'Developing strong skills, confidence and character',
-      'Goal setting and motivation',
-      'Positive coaching that inspires a lifelong love of skating',
-    ],
-  },
-]
-
 export default function HomePage() {
   return (
     <>
@@ -189,29 +162,6 @@ export default function HomePage() {
                 Register for Fall 2026
               </Link>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits */}
-      <section className="bg-white px-4 py-16 md:px-6">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid gap-8 md:grid-cols-3">
-            {benefits.map((b) => (
-              <div key={b.title}>
-                <h3 className="font-bold uppercase text-navy">
-                  {b.title}
-                </h3>
-                <ul className="mt-4 space-y-2 text-sm text-navy/70">
-                  {b.points.map((point) => (
-                    <li key={point} className="flex gap-2">
-                      <span className="mt-1 h-1 w-1 flex-shrink-0 rounded-full bg-navy" />
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
           </div>
         </div>
       </section>
