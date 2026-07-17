@@ -379,7 +379,19 @@ export default function ProgramsPage() {
         </div>
 
         {/* Important Information */}
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="rounded-lg border border-border bg-card p-4">
+            <div className="flex items-start gap-2">
+              <MapPin className="h-5 w-5 shrink-0 text-primary" />
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-primary">
+                  Location
+                </p>
+                <p className="mt-2 text-sm font-medium text-navy">Elvis Stojko Rink</p>
+                <p className="text-xs text-muted-foreground">Richmond Hill · 350 16th Ave</p>
+              </div>
+            </div>
+          </div>
           {importantInfo.map((info) => (
             <div key={info.label} className="rounded-lg border border-border bg-card p-4">
               <p className="text-xs font-semibold uppercase tracking-wider text-primary">
@@ -403,27 +415,6 @@ export default function ProgramsPage() {
               </tr>
             </thead>
             <tbody>
-              <tr className="bg-card">
-                <td className="px-4 py-3">
-                  <div className="flex items-start gap-2">
-                    <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                    <div>
-                      <p className="font-semibold text-navy">Elvis Stojko Rink</p>
-                      <p className="text-sm text-muted-foreground">Richmond Hill · 350 16th Ave</p>
-                    </div>
-                  </div>
-                </td>
-                <td className="px-4 py-3 text-sm text-muted-foreground">—</td>
-                <td className="px-4 py-3 text-muted-foreground">
-                  <p className="text-sm">No classes</p>
-                </td>
-                <td className="px-4 py-3 text-muted-foreground">
-                  <p className="text-sm">No classes</p>
-                </td>
-                <td className="px-4 py-3 text-muted-foreground">
-                  <p className="text-sm">Admin fee: $40</p>
-                </td>
-              </tr>
               {schedule.map((row, i) => (
                 <tr
                   key={`${row.program}-${i}`}
@@ -473,29 +464,6 @@ export default function ProgramsPage() {
 
         {/* Schedule Cards - Mobile */}
         <div className="mt-8 space-y-4 md:hidden">
-          <div className="rounded-lg border border-border bg-card p-4">
-            <div className="flex items-start gap-3">
-              <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-              <div className="flex-1">
-                <h3 className="font-semibold text-navy">Elvis Stojko Rink</h3>
-                <p className="text-sm text-muted-foreground">Richmond Hill · 350 16th Ave</p>
-              </div>
-            </div>
-            <div className="mt-3 space-y-3 border-t border-border pt-3">
-              <div>
-                <p className="text-xs font-semibold uppercase text-primary">Fall (Oct 3–Dec 19)</p>
-                <p className="text-sm text-navy">No classes</p>
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase text-primary">Winter (Jan 9–Apr 24)</p>
-                <p className="text-sm text-navy">No classes</p>
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase text-primary">Full Season</p>
-                <p className="text-sm text-navy">Admin fee: $40</p>
-              </div>
-            </div>
-          </div>
           {schedule.map((row, i) => (
             <div key={`${row.program}-${i}`} className={row.isDiscount ? 'rounded-lg border border-primary/30 bg-primary/5 p-4' : 'rounded-lg border border-border bg-card p-4'}>
               <h3 className={row.isDiscount ? 'text-sm font-medium italic text-primary' : 'font-semibold text-navy'}>{row.program}</h3>
