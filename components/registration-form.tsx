@@ -119,9 +119,7 @@ function SkaterFields({ index, isAdult = false }: { index: number; isAdult?: boo
               onChange={(e) => {
                 // Keep only digits
                 const digits = e.target.value.replace(/\D/g, '')
-                if (digits.length <= 10) {
-                  e.target.setCustomValidity(digits.length === 10 ? '' : 'Phone number must be 10 digits')
-                }
+                e.target.setCustomValidity(digits.length === 10 ? '' : 'Phone number must be 10 digits')
               }}
               onBlur={(e) => {
                 const digits = e.target.value.replace(/\D/g, '')
@@ -508,9 +506,7 @@ export function RegistrationForm({
               onChange={(e) => {
                 // Keep only digits
                 const digits = e.target.value.replace(/\D/g, '')
-                if (digits.length <= 10) {
-                  e.target.setCustomValidity(digits.length === 10 ? '' : 'Phone number must be 10 digits')
-                }
+                e.target.setCustomValidity(digits.length === 10 ? '' : 'Phone number must be 10 digits')
               }}
               onBlur={(e) => {
                 const digits = e.target.value.replace(/\D/g, '')
