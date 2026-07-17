@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { Snowflake, Sparkles } from 'lucide-react'
 
 export const metadata = {
@@ -125,14 +124,7 @@ export default function CoachesPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-14 text-center md:px-6">
-        <Link
-          href="/programs"
-          className="rounded-full bg-primary px-8 py-3 text-sm font-bold text-primary-foreground shadow-md transition-transform hover:scale-[1.03]"
-        >
-          Register Now
-        </Link>
-      </section>
+
     </>
   )
 }
