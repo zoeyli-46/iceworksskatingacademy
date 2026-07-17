@@ -197,6 +197,8 @@ export function RegistrationForm({
       const dob = formData.get(`skater_${i}_dob`) as string
       const gender = formData.get(`skater_${i}_gender`) as string
       const skillLevel = formData.get(`skater_${i}_skill`) as string
+      const email = formData.get(`skater_${i}_email`) as string
+      const phone = formData.get(`skater_${i}_phone`) as string
 
       // Validate all required fields are present
       if (firstName && lastName && dob && gender && skillLevel) {
@@ -205,6 +207,20 @@ export function RegistrationForm({
         skater.dob = dob
         skater.gender = gender
         skater.skill_level = skillLevel
+        
+        // Add email and phone for adult programs
+        if (isAdult) {
+          if (email && phone) {
+            skater.email = email
+            skater.phone = phone
+          } else {
+            // For adult programs, email and phone are required
+            console.error('Adult registration missing email or phone')
+            setIsSubmitting(false)
+            return
+          }
+        }
+        
         skaters.push(skater)
       }
     }
