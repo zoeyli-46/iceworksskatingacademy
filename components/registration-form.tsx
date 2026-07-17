@@ -111,7 +111,23 @@ export function RegistrationForm({
   const isAdult = !!selection?.adult
   const hasSelection = !!selection?.program
   const minSkaters = 1
-
+  
+  // Early bird discount logic
+  const earlyBirdDeadline = new Date('2026-08-10T00:00:00Z')
+  const now = new Date()
+  const isEarlyBirdActive = now < earlyBirdDeadline && !selection?.program?.toLowerCase().includes('ticket ice')
+  
+  // Calculate discounted price
+  const getDiscountedPrice = (priceStr: string) => {
+    if (!priceStr) return null
+    const priceNum = parseFloat(priceStr.replace(/[$,]/g, ''))
+    if (isNaN(priceNum)) return null
+    const discounted = priceNum * 0.9 // 10% off
+    return `$${discounted.toFixed(0)}`
+  }
+  
+  const discountedTotal = isEarlyBirdActive ? getDiscountedPrice(selection?.total || '') : null
+  
   const [skaterCount, setSkaterCount] = useState(minSkaters)
   const [agreed, setAgreed] = useState(false)
   const [submitted, setSubmitted] = useState(false)
@@ -282,9 +298,27 @@ export function RegistrationForm({
             </p>
           )}
           {selection?.total && (
-            <p className="mt-3 border-t border-primary/20 pt-3 text-base font-bold text-navy">
-              Total: {selection.total}
-            </p>
+            <div className="mt-4 space-y-3 border-t border-primary/20 pt-3">
+              {isEarlyBirdActive && (
+                <div className="rounded-lg bg-primary/10 px-3 py-2.5 text-sm font-semibold text-primary">
+                  🎉 10% early bird discount, not including $40 admin fee
+                </div>
+              )}
+              {isEarlyBirdActive && discountedTotal ? (
+                <div className="space-y-1">
+                  <p className="text-sm text-muted-foreground">
+                    Original: <span className="line-through">{selection.total}</span>
+                  </p>
+                  <p className="text-lg font-bold text-navy">
+                    Early Bird Total: {discountedTotal}
+                  </p>
+                </div>
+              ) : (
+                <p className="text-base font-bold text-navy">
+                  Total: {selection.total}
+                </p>
+              )}
+            </div>
           )}
           <input type="hidden" name="program_summary" value={selection?.program ?? ''} />
           <input type="hidden" name="session_summary" value={`${selection?.session ?? ''} ${selection?.dates ?? ''} ${selection?.sessions ?? ''}`.trim()} />

@@ -123,7 +123,7 @@ export default function HomePage() {
               Programs
             </h2>
             <p className="mt-2 text-sm text-navy/70">
-              Skating lessons in Richmond Hill for all ages and skill levels at Elvis Stojko Arena | Fall 2026. Early Bird discount before August 1st.
+              Skating lessons in Richmond Hill for all ages and skill levels at Elvis Stojko Arena
             </p>
           </div>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -179,7 +179,7 @@ export default function HomePage() {
               October 3 - December 19, 2026
             </p>
             <p className="mt-4 text-sm text-navy/90">
-              Register now before August 1 for early bird discount
+              Register now before August 10, 2026 for early bird discount of 10%
             </p>
             <div className="mt-6">
               <Link
@@ -222,10 +222,13 @@ export default function HomePage() {
         <div className="relative mx-auto max-w-6xl">
           <div className="grid items-center gap-8 md:grid-cols-2">
             <div className="flex justify-center">
-              <div className="flex h-48 w-48 items-center justify-center rounded-full bg-white/10">
-                <span className="text-center text-xs font-semibold text-white/50">
-                  Profile picture
-                </span>
+              <div className="relative h-48 w-48 overflow-hidden rounded-full">
+                <Image
+                  src="/images/janis-coyle.jpg"
+                  alt="Janis Coyle, Director of Ice Works Skating Academy"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </div>
             <div className="text-white">

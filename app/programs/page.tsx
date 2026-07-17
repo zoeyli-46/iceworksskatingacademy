@@ -305,7 +305,7 @@ export default function ProgramsPage() {
           </p>
           <div className="mt-6 rounded-2xl border border-primary/20 bg-card p-5">
             <p className="font-bold text-navy">
-              Register now before August 1, 2026 for the early bird discount.
+              Register now before August 10th, 2026 for the early bird discount of 10%
             </p>
             <p className="mt-2 text-sm text-muted-foreground">
               We have small class sizes to provide a personalized, engaging experience for your child. Coaches tailor lessons to each student&apos;s needs.

@@ -22,7 +22,7 @@ const policies: Policy[] = [
   },
   {
     title: 'Class Cancellations and Refunds',
-    body: 'Sessions with low registrations may be cancelled at our discretion. We cannot offer makeups for missed lessons. If you wish to withdraw one week before the start of the season, we will refund the program fees, less a $25 administration fee. On or after the one week before the start of the season, we can offer no refunds.',
+    body: 'Sessions with low registrations may be cancelled at our discretion. We cannot offer makeups for missed lessons. If you wish to withdraw one week before the start of the season, we will refund the program fees, less a $40 administration fee. On or after the one week before the start of the season, we can offer no refunds.',
   },
   {
     title: 'Parental Responsibility',
