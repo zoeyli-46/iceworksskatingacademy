@@ -179,7 +179,7 @@ export default function HomePage() {
               October 3 - December 19, 2026
             </p>
             <p className="mt-4 text-sm text-navy/90">
-              Register now before August 1 for early bird discount
+              Register now before August 10, 2026 for early bird discount of 10%
             </p>
             <div className="mt-6">
               <Link
