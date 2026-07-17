@@ -105,15 +105,13 @@ export function SiteHeader() {
                 </Link>
               )
             })}
-            <a
-              href="/Registration-Form-Ice-Works-Skating-Academy.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/programs"
               onClick={() => setOpen(false)}
               className="mt-1 rounded-lg bg-ice px-4 py-2.5 text-center text-sm font-bold text-ice-foreground"
             >
               Register Now
-            </a>
+            </Link>
           </div>
         </nav>
       )}
