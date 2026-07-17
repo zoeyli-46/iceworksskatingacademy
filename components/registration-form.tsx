@@ -112,8 +112,21 @@ function SkaterFields({ index, isAdult = false }: { index: number; isAdult?: boo
               type="tel"
               name={`skater_${index}_phone`}
               className={inputCls}
-              placeholder="(123) 456-7890"
+              placeholder="123 456 7890"
+              pattern="[0-9\s\-()]{10,}"
+              title="Please enter a valid 10-digit phone number"
               aria-label="Skater phone number"
+              onChange={(e) => {
+                // Keep only digits
+                const digits = e.target.value.replace(/\D/g, '')
+                if (digits.length <= 10) {
+                  e.target.setCustomValidity(digits.length === 10 ? '' : 'Phone number must be 10 digits')
+                }
+              }}
+              onBlur={(e) => {
+                const digits = e.target.value.replace(/\D/g, '')
+                e.target.setCustomValidity(digits.length === 10 ? '' : 'Phone number must be 10 digits')
+              }}
             />
           </div>
         </>
@@ -459,7 +472,20 @@ export function RegistrationForm({
               type="tel"
               name="phone"
               className={inputCls}
-              placeholder="(123) 456-7890"
+              placeholder="123 456 7890"
+              pattern="[0-9\s\-()]{10,}"
+              title="Please enter a valid 10-digit phone number"
+              onChange={(e) => {
+                // Keep only digits
+                const digits = e.target.value.replace(/\D/g, '')
+                if (digits.length <= 10) {
+                  e.target.setCustomValidity(digits.length === 10 ? '' : 'Phone number must be 10 digits')
+                }
+              }}
+              onBlur={(e) => {
+                const digits = e.target.value.replace(/\D/g, '')
+                e.target.setCustomValidity(digits.length === 10 ? '' : 'Phone number must be 10 digits')
+              }}
             />
           </div>
           <div className="sm:col-span-2">
