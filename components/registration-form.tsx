@@ -26,7 +26,7 @@ const labelCls = 'mb-1.5 block text-sm font-semibold text-navy'
 const inputCls =
   'w-full rounded-lg border border-input bg-card px-3.5 py-2.5 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-ring/30'
 
-function SkaterFields({ index }: { index: number }) {
+function SkaterFields({ index, isAdult = false }: { index: number; isAdult?: boolean }) {
   return (
     <div className="grid gap-4 sm:grid-cols-2">
       <div className="sm:col-span-2">
@@ -88,6 +88,49 @@ function SkaterFields({ index }: { index: number }) {
           ))}
         </select>
       </div>
+      {isAdult && (
+        <>
+          <div>
+            <label className={labelCls}>
+              Email Address <span className="text-primary">*</span>
+            </label>
+            <input
+              required
+              type="email"
+              name={`skater_${index}_email`}
+              className={inputCls}
+              placeholder="youremail@example.com"
+              aria-label="Skater email address"
+            />
+          </div>
+          <div>
+            <label className={labelCls}>
+              Phone Number <span className="text-primary">*</span>
+            </label>
+            <input
+              required
+              type="tel"
+              name={`skater_${index}_phone`}
+              className={inputCls}
+              placeholder="123 456 7890"
+              pattern="[0-9\s\-()]{10,}"
+              title="Please enter a valid 10-digit phone number"
+              aria-label="Skater phone number"
+              onChange={(e) => {
+                // Keep only digits
+                const digits = e.target.value.replace(/\D/g, '')
+                if (digits.length <= 10) {
+                  e.target.setCustomValidity(digits.length === 10 ? '' : 'Phone number must be 10 digits')
+                }
+              }}
+              onBlur={(e) => {
+                const digits = e.target.value.replace(/\D/g, '')
+                e.target.setCustomValidity(digits.length === 10 ? '' : 'Phone number must be 10 digits')
+              }}
+            />
+          </div>
+        </>
+      )}
     </div>
   )
 }
@@ -132,6 +175,7 @@ export function RegistrationForm({
   const [agreed, setAgreed] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -213,17 +257,23 @@ export function RegistrationForm({
         }),
       })
 
-      if (!response.ok) {
-        console.error('Failed to submit registration')
+      const data = await response.json()
+
+      if (!response.ok || !data.success) {
+        setError(data.error || 'Failed to submit registration')
         setIsSubmitting(false)
+        window.scrollTo({ top: 0, behavior: 'smooth' })
         return
       }
       
+      setError(null)
       setSubmitted(true)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } catch (error) {
       console.error('Submission error:', error)
+      setError('Your registration cannot be completed due to a technical issue. Please refresh this page and fill out the form to try again. If this fails, please contact us directly at iceworksskatingacademy@gmail.com.')
       setIsSubmitting(false)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
     }
   }
 
@@ -278,6 +328,13 @@ export function RegistrationForm({
       onSubmit={handleSubmit}
       className="rounded-3xl border border-border bg-card p-6 shadow-sm md:p-8"
     >
+      {/* Error message */}
+      {error && (
+        <div className="mb-6 rounded-lg border border-red-200 bg-red-50 p-4">
+          <p className="text-sm text-red-800">{error}</p>
+        </div>
+      )}
+      
       {/* Program summary */}
       {hasSelection && (
         <div className="mb-8 rounded-2xl border border-primary/20 bg-secondary/40 p-5">
@@ -359,7 +416,7 @@ export function RegistrationForm({
                     <Trash2 className="h-3.5 w-3.5" /> Remove
                   </button>
                 )}
-                <SkaterFields index={i} />
+                <SkaterFields index={i} isAdult={isAdult} />
               </div>
             )
           })}
@@ -429,7 +486,20 @@ export function RegistrationForm({
               type="tel"
               name="phone"
               className={inputCls}
-              placeholder="(123) 456-7890"
+              placeholder="123 456 7890"
+              pattern="[0-9\s\-()]{10,}"
+              title="Please enter a valid 10-digit phone number"
+              onChange={(e) => {
+                // Keep only digits
+                const digits = e.target.value.replace(/\D/g, '')
+                if (digits.length <= 10) {
+                  e.target.setCustomValidity(digits.length === 10 ? '' : 'Phone number must be 10 digits')
+                }
+              }}
+              onBlur={(e) => {
+                const digits = e.target.value.replace(/\D/g, '')
+                e.target.setCustomValidity(digits.length === 10 ? '' : 'Phone number must be 10 digits')
+              }}
             />
           </div>
           <div className="sm:col-span-2">
