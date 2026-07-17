@@ -345,34 +345,6 @@ export default function ProgramsPage() {
       </section>
 
       {/* Schedule */}
-      <section id="schedule" className="bg-secondary/60 py-14">
-        <div className="mx-auto max-w-6xl px-4 md:px-6">
-          <h2 className="font-serif text-3xl font-bold text-navy">Schedule</h2>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            <div className="flex items-start gap-3 rounded-2xl border border-border bg-card p-5">
-              <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-              <div>
-                <p className="font-bold text-navy">Elvis Stojko Rink</p>
-                <p className="text-sm text-muted-foreground">
-                  Richmond Hill · 350 16th Ave
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3 rounded-2xl border border-border bg-card p-5">
-              <CalendarDays className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-              <div>
-                <p className="font-bold text-navy">
-                  12 sessions · October 3 – December 19, 2026
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  Saturdays 10–12 · 1-hour class or 2-hour class
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Program Schedule & Fees */}
       <section id="program-schedule" className="mx-auto max-w-6xl px-4 py-14 md:px-6">
         <h2 className="font-serif text-3xl font-bold text-navy">Program Schedule</h2>
@@ -388,7 +360,19 @@ export default function ProgramsPage() {
         </div>
 
         {/* Important Information */}
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="rounded-lg border border-border bg-card p-4">
+            <div className="flex items-start gap-2">
+              <MapPin className="h-5 w-5 shrink-0 text-primary" />
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-primary">
+                  Location
+                </p>
+                <p className="mt-2 text-sm font-medium text-navy">Elvis Stojko Rink</p>
+                <p className="text-xs text-muted-foreground">Richmond Hill · 350 16th Ave</p>
+              </div>
+            </div>
+          </div>
           {importantInfo.map((info) => (
             <div key={info.label} className="rounded-lg border border-border bg-card p-4">
               <p className="text-xs font-semibold uppercase tracking-wider text-primary">
@@ -551,14 +535,7 @@ export default function ProgramsPage() {
           </div>
         </div>
 
-        <div className="mt-10 text-center">
-          <a
-            href="#program-schedule"
-            className="rounded-full bg-primary px-8 py-3 text-sm font-bold text-primary-foreground shadow-md transition-transform hover:scale-[1.03]"
-          >
-            Register Now
-          </a>
-        </div>
+
       </section>
     </>
   )
