@@ -80,13 +80,23 @@ export async function POST(request: NextRequest) {
     const skaterDetails = registrationData.skater_info
       .map((skater, idx) => {
         const num = idx + 1
-        return `
+        let details = `
 Skater ${num}:
   First Name: ${skater.first_name || 'N/A'}
   Last Name: ${skater.last_name || 'N/A'}
   Date of Birth: ${skater.dob || 'N/A'}
   Gender: ${skater.gender || 'N/A'}
   Current Skill Level: ${skater.skill_level || 'N/A'}`
+        
+        // Add email and phone if present (adult programs)
+        if (skater.email) {
+          details += `\n  Email: ${skater.email}`
+        }
+        if (skater.phone) {
+          details += `\n  Phone: ${skater.phone}`
+        }
+        
+        return details
       })
       .join('\n')
 
