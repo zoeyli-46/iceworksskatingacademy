@@ -4,6 +4,7 @@ import { Montserrat, Playfair_Display } from 'next/font/google'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { Snowfall } from '@/components/snowfall'
+import { EarlyBirdBanner } from '@/components/early-bird-banner'
 import './globals.css'
 
 const montserrat = Montserrat({
@@ -44,6 +45,7 @@ export default function RootLayout({
     <html lang="en" className={`${montserrat.variable} ${playfair.variable} bg-background`}>
       <body className="font-sans antialiased">
         <Snowfall />
+        <EarlyBirdBanner />
         <div className="relative z-10 flex min-h-dvh flex-col">
           <SiteHeader />
           <main className="flex-1">{children}</main>
