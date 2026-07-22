@@ -364,12 +364,18 @@ export default function ProgramsPage() {
           <div className="rounded-lg border border-border bg-card p-4">
             <div className="flex items-start gap-2">
               <MapPin className="h-5 w-5 shrink-0 text-primary" />
-              <div>
+              <div className="space-y-3">
                 <p className="text-xs font-semibold uppercase tracking-wider text-primary">
                   Location
                 </p>
-                <p className="mt-2 text-sm font-medium text-navy">Elvis Stojko Rink</p>
-                <p className="text-xs text-muted-foreground">Richmond Hill · 350 16th Ave</p>
+                <div>
+                  <p className="text-sm font-medium text-navy">Skating Lessons</p>
+                  <p className="text-xs text-muted-foreground">Elvis Stojko Rink · Richmond Hill · 350 16th Ave</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-navy">Off Ice Lessons</p>
+                  <p className="text-xs text-muted-foreground">Richvale Community Centre</p>
+                </div>
               </div>
             </div>
           </div>
