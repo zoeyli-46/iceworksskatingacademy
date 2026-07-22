@@ -285,20 +285,7 @@ export default function ProgramsPage() {
           <p className="mt-4 max-w-2xl text-pretty leading-relaxed text-muted-foreground">
             Our expert, national-level coaching team is here to support you, whether you&apos;re just starting out or looking to take your skating to the next level, or performing in shows and competitions.
           </p>
-          <div className="mt-6 rounded-2xl border border-primary/20 bg-card p-5">
-            <p className="font-bold text-navy">
-              Register now before August 10th, 2026 for the early bird discount of 10%
-            </p>
-            <p className="mt-2 text-sm text-muted-foreground">
-              We have small class sizes to provide a personalized, engaging experience for your child. Coaches tailor lessons to each student&apos;s needs.
-            </p>
-            <a
-              href="#program-schedule"
-              className="mt-4 inline-block rounded-full bg-primary px-7 py-3 text-sm font-bold text-primary-foreground shadow-md transition-transform hover:scale-[1.03]"
-            >
-              Register Now
-            </a>
-          </div>
+
         </div>
       </section>
 
