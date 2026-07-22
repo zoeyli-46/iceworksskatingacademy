@@ -154,9 +154,9 @@ const schedule: ScheduleRow[] = [
   {
     program: 'Private Lessons',
     time: 'Saturday 10:00–11:00 AM or 11:00 AM–12:00 PM',
-    fall: '12 sessions • $1,400',
-    winter: '13 sessions • $1,560',
-    fullSeason: '25 sessions • $2,960',
+    fall: '12 sessions • $1,320',
+    winter: '13 sessions • $1,430',
+    fullSeason: '25 sessions • $2,750',
   },
   {
     program: 'Semi-Private',
