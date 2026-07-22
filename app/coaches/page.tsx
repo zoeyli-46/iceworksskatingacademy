@@ -27,6 +27,12 @@ const coaches = [
     bio: 'Marwan is a former national-level figure skater with 13 years of competitive experience and 3 years of coaching experience, specialized in guiding skaters from beginner to development of strong foundational skills and single jumps. Coaching approach combines technical precision, patience, and encouragement to help each skater build confidence, ability, and a lasting love for the sport.',
   },
   {
+    name: 'Fiona Robinson',
+    role: 'Skating Coach And Off Ice Trainer',
+    image: '/images/coach-fiona.jpg',
+    bio: 'Fiona is a highly accomplished regional figure skating coach and off-ice trainer with an impressive thirty-year career in the sport. Throughout her decades of dedication, she has developed a reputation for combining technical precision with innovative off-ice conditioning, helping skaters reach their highest potential on and off the ice. Her comprehensive approach to athlete development focuses on building strength, flexibility, and artistic expression, making her a sought-after mentor in the figure skating community.',
+  },
+  {
     name: 'Annette Moretti',
     role: 'Skating Coach',
     image: '/images/coach-annette.jpg',

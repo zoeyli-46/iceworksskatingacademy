@@ -75,12 +75,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="mt-4">
-              <div className="inline-block rounded-full bg-primary px-4 py-2 text-sm font-bold text-primary-foreground">
-                Early bird 10% discount before Aug 10, 2026
-              </div>
-            </div>
-
             <div className="mt-6">
               <Link
                 href="/programs"

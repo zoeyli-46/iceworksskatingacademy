@@ -154,9 +154,9 @@ const schedule: ScheduleRow[] = [
   {
     program: 'Private Lessons',
     time: 'Saturday 10:00–11:00 AM or 11:00 AM–12:00 PM',
-    fall: '12 sessions • $1,400',
-    winter: '13 sessions • $1,560',
-    fullSeason: '25 sessions • $2,960',
+    fall: '12 sessions • $1,320',
+    winter: '13 sessions • $1,430',
+    fullSeason: '25 sessions • $2,750',
   },
   {
     program: 'Semi-Private',
@@ -285,20 +285,7 @@ export default function ProgramsPage() {
           <p className="mt-4 max-w-2xl text-pretty leading-relaxed text-muted-foreground">
             Our expert, national-level coaching team is here to support you, whether you&apos;re just starting out or looking to take your skating to the next level, or performing in shows and competitions.
           </p>
-          <div className="mt-6 rounded-2xl border border-primary/20 bg-card p-5">
-            <p className="font-bold text-navy">
-              Register now before August 10th, 2026 for the early bird discount of 10%
-            </p>
-            <p className="mt-2 text-sm text-muted-foreground">
-              We have small class sizes to provide a personalized, engaging experience for your child. Coaches tailor lessons to each student&apos;s needs.
-            </p>
-            <a
-              href="#program-schedule"
-              className="mt-4 inline-block rounded-full bg-primary px-7 py-3 text-sm font-bold text-primary-foreground shadow-md transition-transform hover:scale-[1.03]"
-            >
-              Register Now
-            </a>
-          </div>
+
         </div>
       </section>
 
@@ -364,12 +351,18 @@ export default function ProgramsPage() {
           <div className="rounded-lg border border-border bg-card p-4">
             <div className="flex items-start gap-2">
               <MapPin className="h-5 w-5 shrink-0 text-primary" />
-              <div>
+              <div className="space-y-3">
                 <p className="text-xs font-semibold uppercase tracking-wider text-primary">
                   Location
                 </p>
-                <p className="mt-2 text-sm font-medium text-navy">Elvis Stojko Rink</p>
-                <p className="text-xs text-muted-foreground">Richmond Hill · 350 16th Ave</p>
+                <div>
+                  <p className="text-sm font-medium text-navy">Skating Lessons</p>
+                  <p className="text-xs text-muted-foreground">Elvis Stojko Rink · Richmond Hill · 350 16th Ave</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-navy">Off Ice Lessons</p>
+                  <p className="text-xs text-muted-foreground">Richvale Community Centre</p>
+                </div>
               </div>
             </div>
           </div>
