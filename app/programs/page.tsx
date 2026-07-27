@@ -342,7 +342,7 @@ export default function ProgramsPage() {
             📅 Register before August 10 and save 10%!
           </p>
           <p className="mt-1 text-sm text-primary-foreground/90">
-            Early Bird Discount applies to tuition only (does not include the $40 administration fee)
+            Early Bird Discount applies to tuition only (does not apply to admin fee, off ice lessons, or private lessons)
           </p>
         </div>
 
