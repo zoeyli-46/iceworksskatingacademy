@@ -156,7 +156,8 @@ export function RegistrationForm({
   // Early bird discount logic
   const earlyBirdDeadline = new Date('2026-08-10T00:00:00Z')
   const now = new Date()
-  const isEarlyBirdActive = now < earlyBirdDeadline && !selection?.program?.toLowerCase().includes('ticket ice')
+  const programLower = selection?.program?.toLowerCase() || ''
+  const isEarlyBirdActive = now < earlyBirdDeadline && !programLower.includes('ticket ice') && !programLower.includes('off ice') && !programLower.includes('private')
   
   // Calculate discounted price
   const getDiscountedPrice = (priceStr: string) => {
