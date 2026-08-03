@@ -150,9 +150,6 @@ export default function HomePage() {
             <p className="text-base text-navy">
               October 3 - December 19, 2026
             </p>
-            <p className="mt-4 text-sm text-navy/90">
-              Register now before August 10, 2026 for early bird discount of 10%
-            </p>
             <div className="mt-6">
               <Link
                 href="/programs"
