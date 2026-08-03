@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { isEarlyBirdActive } from '@/lib/early-bird'
 
 const NAV = [
   { href: '/', label: 'Home' },
@@ -17,9 +18,11 @@ const NAV = [
 export function SiteHeader() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
+  const bannerVisible = isEarlyBirdActive()
+  const topOffset = bannerVisible ? 'top-[52px]' : 'top-0'
 
   return (
-    <header className="sticky top-[52px] z-40 border-b border-border/70 glass">
+    <header className={cn('sticky z-40 border-b border-border/70 glass', topOffset)}>
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 md:px-6">
         <Link
           href="/"
