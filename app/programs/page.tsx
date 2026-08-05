@@ -101,15 +101,8 @@ const schedule: ScheduleRow[] = [
     fullSeason: '25 sessions • $975',
   },
   {
-    program: 'Learn to Skate (Levels 1–3)',
-    time: 'Saturday 10:00 AM–12:00 PM',
-    fall: '12 sessions • $480',
-    winter: '13 sessions • $520',
-    fullSeason: '25 sessions • $1,000',
-  },
-  {
-    program: 'Learn to Skate (Levels 4–6)',
-    time: 'Saturday 10:00 AM–12:00 PM',
+    program: 'Learn to Skate (Levels 1–6)',
+    time: 'Saturday 10:00–11:00 AM or 11:00 AM–12:00 PM',
     fall: '12 sessions • $480',
     winter: '13 sessions • $520',
     fullSeason: '25 sessions • $1,000',
@@ -139,7 +132,7 @@ const schedule: ScheduleRow[] = [
   },
   {
     program: 'Adult',
-    time: 'Saturday 10:00–11:00 AM or 11:00 AM–12:00 PM',
+    time: 'Saturday 11:00 AM–12:00 PM',
     fall: '12 sessions • $528',
     winter: '13 sessions • $572',
     fullSeason: '25 sessions • $1,100',

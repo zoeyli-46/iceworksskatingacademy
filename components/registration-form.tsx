@@ -398,6 +398,37 @@ export function RegistrationForm({
         </div>
       )}
 
+      {/* Preferred time selection for programs that need it */}
+      {hasSelection && (selection?.program?.includes('Learn to Skate') || (selection?.program === 'Figure Skating') || selection?.program?.includes('Private Lessons') || selection?.program?.includes('Semi-Private')) && (
+        <div className="mb-8 rounded-2xl border border-border bg-card p-5">
+          <p className="text-xs font-bold uppercase tracking-wider text-primary">
+            Select preferred time
+          </p>
+          <div className="mt-4 space-y-3">
+            <label className="flex items-center gap-3 cursor-pointer">
+              <input
+                required
+                type="radio"
+                name="preferred_time"
+                value="10:00-11:00"
+                className="h-4 w-4"
+                defaultChecked
+              />
+              <span className="text-sm">Saturday 10:00–11:00 AM</span>
+            </label>
+            <label className="flex items-center gap-3 cursor-pointer">
+              <input
+                type="radio"
+                name="preferred_time"
+                value="11:00-12:00"
+                className="h-4 w-4"
+              />
+              <span className="text-sm">Saturday 11:00 AM–12:00 PM</span>
+            </label>
+          </div>
+        </div>
+      )}
+
       {/* Skater information */}
       <fieldset>
         <legend className="text-xs font-bold uppercase tracking-wider text-primary">
