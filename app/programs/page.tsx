@@ -38,7 +38,7 @@ const programsList: Program[] = [
     name: 'Figure Skating',
     icon: 'figure-skating',
     points: [
-      'STAR 1 to 5, STAR 6 to Gold',
+      'Figure Skating 1 to Gold',
       'Edge development, learn jumps, spins, dance and creative movement',
     ],
   },
