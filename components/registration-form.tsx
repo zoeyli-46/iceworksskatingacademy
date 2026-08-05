@@ -399,7 +399,7 @@ export function RegistrationForm({
       )}
 
       {/* Preferred time selection for programs that need it */}
-      {hasSelection && (selection?.program?.includes('Learn to Skate') || selection?.program?.includes('Figure Skating') || selection?.program?.includes('Private Lessons') || selection?.program?.includes('Semi-Private')) && (
+      {hasSelection && (selection?.program?.includes('Learn to Skate') || (selection?.program === 'Figure Skating') || selection?.program?.includes('Private Lessons') || selection?.program?.includes('Semi-Private')) && (
         <div className="mb-8 rounded-2xl border border-border bg-card p-5">
           <p className="text-xs font-bold uppercase tracking-wider text-primary">
             Select preferred time
