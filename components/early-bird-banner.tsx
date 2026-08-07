@@ -10,7 +10,7 @@ export function EarlyBirdBanner() {
   
   return (
     <div className="sticky top-0 z-40 w-full bg-primary px-3 py-2 text-center text-sm font-bold text-primary-foreground sm:px-4 sm:py-3 sm:text-base">
-      Early bird 10% discount before Aug 10, 2026
+      Early bird 10% discount before Aug 10 for Fall Registration, and November 2 for Winter Registration
     </div>
   )
 }
