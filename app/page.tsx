@@ -15,7 +15,7 @@ const programs = [
   {
     name: 'Figure Skating',
     icon: 'figure-skating',
-    description: 'STAR 1 to 5, STAR 6 to Gold. Edge development, learn jumps, spins, dance and creative movement',
+    description: 'Figure Skating 1 to Gold. Edge development, learn jumps, spins, dance and creative movement',
   },
   {
     name: 'Power Skate',
