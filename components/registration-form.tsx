@@ -153,11 +153,14 @@ export function RegistrationForm({
   const hasSelection = !!selection?.program
   const minSkaters = 1
   
-  // Early bird discount logic
-  const earlyBirdDeadline = new Date('2026-08-10T00:00:00Z')
+  // Winter session early bird discount logic
+  const earlyBirdDeadline = new Date('2026-11-02T05:00:00Z')
   const now = new Date()
   const programLower = selection?.program?.toLowerCase() || ''
-  const isEarlyBirdActive = now < earlyBirdDeadline && !programLower.includes('ticket ice') && !programLower.includes('off ice') && !programLower.includes('private')
+  const sessionLower = selection?.session?.toLowerCase() || ''
+  const isWinterSession = sessionLower.includes('winter')
+  const isEarlyBirdEligible = !programLower.includes('ticket ice') && !programLower.includes('off ice') && !programLower.includes('private')
+  const isEarlyBirdActive = now < earlyBirdDeadline && isWinterSession && isEarlyBirdEligible
   
   // Calculate discounted price
   const getDiscountedPrice = (priceStr: string) => {
