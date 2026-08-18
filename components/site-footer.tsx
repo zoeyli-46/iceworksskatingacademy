@@ -75,10 +75,10 @@ export function SiteFooter() {
             <li className="flex items-center gap-2">
               <Mail className="h-4 w-4 shrink-0 text-ice" />
               <a
-                href="mailto:iceworksskatingacademy@gmail.com"
+                href="mailto:iceworksacademy@gmail.com"
                 className="break-all hover:text-white"
               >
-                iceworksskatingacademy@gmail.com
+                iceworksacademy@gmail.com
               </a>
             </li>
           </ul>

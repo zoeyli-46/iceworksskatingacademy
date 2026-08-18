@@ -294,7 +294,7 @@ export function RegistrationForm({
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } catch (error) {
       console.error('Submission error:', error)
-      setError('Your registration cannot be completed due to a technical issue. Please refresh this page and fill out the form to try again. If this fails, please contact us directly at iceworksskatingacademy@gmail.com.')
+      setError('Your registration cannot be completed due to a technical issue. Please refresh this page and fill out the form to try again. If this fails, please contact us directly at iceworksacademy@gmail.com.')
       setIsSubmitting(false)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     }
