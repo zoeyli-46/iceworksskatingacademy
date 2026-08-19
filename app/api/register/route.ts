@@ -147,8 +147,9 @@ This registration has been saved to the database.
       emailError = true
     }
 
-    // If either Supabase or email failed, return error
-    if (supabaseError || emailError) {
+    // The registration is complete once it is saved to Supabase. Email delivery
+    // is a notification step and must not make users submit the form again.
+    if (supabaseError) {
       return NextResponse.json(
         {
           success: false,
@@ -156,6 +157,10 @@ This registration has been saved to the database.
         },
         { status: 500 }
       )
+    }
+
+    if (emailError) {
+      console.error('[v0] Registration saved, but notification email delivery failed.')
     }
 
     return NextResponse.json(
