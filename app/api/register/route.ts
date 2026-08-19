@@ -6,8 +6,8 @@ import { NextRequest, NextResponse } from 'next/server'
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_PASSWORD,
+    user: process.env.GMAIL_user ?? (process.env.GMAIL_user ?? process.env.GMAIL_USER),
+    pass: process.env.GMAIL_password ?? (process.env.GMAIL_password ?? process.env.GMAIL_PASSWORD),
   },
 })
 
@@ -131,11 +131,11 @@ This registration has been saved to the database.
     let emailError = false
     try {
       console.log('[v0] Email credentials check:', {
-        user: process.env.GMAIL_USER ? 'set' : 'NOT SET',
-        pass: process.env.GMAIL_PASSWORD ? 'set' : 'NOT SET',
+        user: (process.env.GMAIL_user ?? process.env.GMAIL_USER) ? 'set' : 'NOT SET',
+        pass: (process.env.GMAIL_password ?? process.env.GMAIL_PASSWORD) ? 'set' : 'NOT SET',
       })
       const info = await transporter.sendMail({
-        from: process.env.GMAIL_USER,
+        from: (process.env.GMAIL_user ?? process.env.GMAIL_USER),
         to: 'iceworksacademy@gmail.com',
         subject: `New Registration: ${registrationData.program}`,
         text: emailContent,
