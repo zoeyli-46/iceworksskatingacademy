@@ -332,7 +332,7 @@ export default function ProgramsPage() {
         {/* Early Bird Banner */}
         <div className="mt-6 rounded-2xl bg-gradient-to-r from-primary to-primary/80 p-4 text-center sm:p-6">
           <p className="font-bold text-primary-foreground">
-            Register before Aug 31 for Fall Session and Nov 2 for Winter session to save 10%!
+            Register before Sept 6 for Fall Session and Nov 2 for Winter session to save 10%!
           </p>
           <p className="mt-1 text-sm text-primary-foreground/90">
             Early Bird Discount applies to tuition only (does not apply to admin fee, off ice lessons, or private lessons)
