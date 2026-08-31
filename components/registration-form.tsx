@@ -154,7 +154,7 @@ export function RegistrationForm({
   const minSkaters = 1
   
   // Seasonal early bird discount logic
-  const fallEarlyBirdDeadline = new Date('2026-08-31T05:00:00Z')
+  const fallEarlyBirdDeadline = new Date('2026-09-06T04:00:00Z')
   const winterEarlyBirdDeadline = new Date('2026-11-02T05:00:00Z')
   const now = new Date()
   const programLower = selection?.program?.toLowerCase() || ''
