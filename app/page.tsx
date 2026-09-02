@@ -51,7 +51,7 @@ export default function HomePage() {
         />
         <div className="relative mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-24">
           <div className="max-w-2xl">
-            <h1 className="sr-only">Ice Works Skating Academy</h1>
+            <h1 className="sr-only">Skating Lessons in Richmond Hill, Ontario</h1>
             <Image
               src="/images/director-logo.png"
               alt="Ice Works Skating Academy. Director Janis Coyle | National Skating Coach"
