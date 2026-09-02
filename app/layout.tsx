@@ -44,6 +44,27 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${montserrat.variable} ${playfair.variable} bg-background`}>
       <body className="font-sans antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'LocalBusiness',
+              name: 'Ice Works Skating Academy',
+              description: 'Local skating school offering skating lessons for all ages and skill levels.',
+              serviceType: 'Skating school',
+              address: {
+                '@type': 'PostalAddress',
+                streetAddress: '350 16th Ave',
+                addressLocality: 'Richmond Hill',
+                addressRegion: 'ON',
+                addressCountry: 'CA',
+              },
+              telephone: '+1-416-476-8896',
+              url: 'https://iceworksskatingacademy.com',
+            }),
+          }}
+        />
         <Snowfall />
         <EarlyBirdBanner />
         <div className="relative z-10 flex min-h-dvh flex-col">
