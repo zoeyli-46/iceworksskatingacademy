@@ -332,7 +332,7 @@ export default function ProgramsPage() {
         {/* Early Bird Banner */}
         <div className="mt-6 rounded-2xl bg-gradient-to-r from-primary to-primary/80 p-4 text-center sm:p-6">
           <p className="font-bold text-primary-foreground">
-            Register before Sept 11 for Fall Session and Nov 2 for Winter session to save 10%!
+            Fall Registration OPEN for Oct 3-Dec 19 2026. Winter discount 10% until Nov 2 for classes starting January 2027
           </p>
           <p className="mt-1 text-sm text-primary-foreground/90">
             Early Bird Discount applies to tuition only (does not apply to admin fee, off ice lessons, or private lessons)
@@ -350,7 +350,7 @@ export default function ProgramsPage() {
                 </p>
                 <div>
                   <p className="text-sm font-medium text-navy">Skating Lessons</p>
-                  <p className="text-xs text-muted-foreground">Elvis Stojko Rink · Richmond Hill · 350 16th Ave</p>
+                  <p className="text-xs text-muted-foreground">Elvis Stojko Rink �� Richmond Hill · 350 16th Ave</p>
                 </div>
                 <div>
                   <p className="text-sm font-medium text-navy">Off Ice Lessons</p>
