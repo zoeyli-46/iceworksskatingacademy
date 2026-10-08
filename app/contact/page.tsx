@@ -3,7 +3,7 @@ import { Mail, MapPin, Phone, Sparkles } from 'lucide-react'
 export const metadata = {
   title: 'Contact Us | Ice Works Skating Academy',
   description:
-    'Contact Ice Works Skating Academy at the Elvis Stojko Arena, 350 16th Ave, Richmond Hill, ON. Call 416-476-8896 or email iceworksacademy@gmail.com.',
+    'Contact Ice Works Skating Academy at the Elvis Stojko Arena, 350 16th Ave, Richmond Hill, ON. Call 437-452-9732 or email iceworksacademy@gmail.com.',
 }
 
 export default function ContactPage() {
@@ -40,7 +40,7 @@ export default function ContactPage() {
 
           <div className="space-y-4">
             <a
-              href="tel:14164768896"
+              href="tel:14374529732"
               className="flex items-start gap-4 rounded-2xl border border-border bg-card p-6 shadow-sm transition-colors hover:bg-secondary"
             >
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-secondary text-primary">
@@ -48,7 +48,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <p className="font-bold text-navy">Call Us</p>
-                <p className="text-sm text-muted-foreground">416-476-8896</p>
+                <p className="text-sm text-muted-foreground">437-452-9732</p>
               </div>
             </a>
 

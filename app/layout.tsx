@@ -60,7 +60,7 @@ export default function RootLayout({
                 addressRegion: 'ON',
                 addressCountry: 'CA',
               },
-              telephone: '+1-416-476-8896',
+              telephone: '+1-437-452-9732',
               url: 'https://iceworksskatingacademy.com',
             }),
           }}
