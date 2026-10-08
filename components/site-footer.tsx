@@ -68,8 +68,8 @@ export function SiteFooter() {
             </li>
             <li className="flex items-center gap-2">
               <Phone className="h-4 w-4 shrink-0 text-ice" />
-              <a href="tel:14164768896" className="hover:text-white">
-                416-476-8896
+              <a href="tel:14374529732" className="hover:text-white">
+                437-452-9732
               </a>
             </li>
             <li className="flex items-center gap-2">
