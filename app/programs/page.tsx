@@ -355,7 +355,7 @@ export default function ProgramsPage() {
                 </p>
                 <div>
                   <p className="text-sm font-medium text-navy">Skating Lessons</p>
-                  <p className="text-xs text-muted-foreground">Elvis Stojko Rink ���� Richmond Hill · 350 16th Ave</p>
+                  <p className="text-xs text-muted-foreground">Elvis Stojko Rink, Richmond Hill · 350 16th Ave</p>
                 </div>
                 <div>
                   <p className="text-sm font-medium text-navy">Off Ice Lessons</p>
