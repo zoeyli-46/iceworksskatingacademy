@@ -2,6 +2,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Sparkles, CalendarDays, MapPin, Info } from 'lucide-react'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata = {
   title: 'Programs | Ice Works Skating Academy',
   description:
@@ -263,6 +265,9 @@ const equipment: EquipmentItem[] = [
 ]
 
 export default function ProgramsPage() {
+  const fallAndFullSeasonRemovalDate = new Date('2026-12-19T05:00:00Z')
+  const showFallAndFullSeason = new Date() < fallAndFullSeasonRemovalDate
+
   return (
     <>
       {/* Header */}
@@ -364,7 +369,11 @@ export default function ProgramsPage() {
               <p className="text-xs font-semibold uppercase tracking-wider text-primary">
                 {info.label}
               </p>
-              <p className="mt-2 text-sm font-medium text-navy">{info.value}</p>
+              <p className="mt-2 text-sm font-medium text-navy">
+                {info.label === 'Season Dates' && !showFallAndFullSeason
+                  ? 'Winter: January 9 – April 24'
+                  : info.value}
+              </p>
             </div>
           ))}
         </div>
@@ -376,9 +385,11 @@ export default function ProgramsPage() {
               <tr className="bg-navy text-primary-foreground">
                 <th className="px-4 py-3 font-bold">Program</th>
                 <th className="px-4 py-3 font-bold">Time</th>
-                <th className="px-4 py-3 font-bold">Fall Session (Oct 3–Dec 19)</th>
+                {showFallAndFullSeason && (
+                  <th className="px-4 py-3 font-bold">Fall Session (Oct 3–Dec 19)</th>
+                )}
                 <th className="px-4 py-3 font-bold">Winter Session (Jan 9–Apr 24)</th>
-                <th className="px-4 py-3 font-bold">Full Season</th>
+                {showFallAndFullSeason && <th className="px-4 py-3 font-bold">Full Season</th>}
               </tr>
             </thead>
             <tbody>
@@ -400,29 +411,33 @@ export default function ProgramsPage() {
                     )}
                   </td>
                   <td className="px-4 py-3 text-sm text-muted-foreground">{row.time}</td>
-                  <td className="px-4 py-3 text-muted-foreground">
-                    <div className="flex flex-col">
-                      <span>{row.fall}</span>
-                      <RegisterButton row={row} sessionKey="fall" />
-                    </div>
-                  </td>
+                  {showFallAndFullSeason && (
+                    <td className="px-4 py-3 text-muted-foreground">
+                      <div className="flex flex-col">
+                        <span>{row.fall}</span>
+                        <RegisterButton row={row} sessionKey="fall" />
+                      </div>
+                    </td>
+                  )}
                   <td className="px-4 py-3 text-muted-foreground">
                     <div className="flex flex-col">
                       <span>{row.winter}</span>
                       <RegisterButton row={row} sessionKey="winter" />
                     </div>
                   </td>
-                  <td className="px-4 py-3 text-muted-foreground">
-                    <div className="flex flex-col">
-                      <span>
-                        {row.fullSeason}
-                        {row.isDiscount && row.note && (
-                          <span className="ml-2 text-xs italic text-primary">({row.note})</span>
-                        )}
-                      </span>
-                      <RegisterButton row={row} sessionKey="fullSeason" />
-                    </div>
-                  </td>
+                  {showFallAndFullSeason && (
+                    <td className="px-4 py-3 text-muted-foreground">
+                      <div className="flex flex-col">
+                        <span>
+                          {row.fullSeason}
+                          {row.isDiscount && row.note && (
+                            <span className="ml-2 text-xs italic text-primary">({row.note})</span>
+                          )}
+                        </span>
+                        <RegisterButton row={row} sessionKey="fullSeason" />
+                      </div>
+                    </td>
+                  )}
                 </tr>
               ))}
             </tbody>
@@ -437,13 +452,15 @@ export default function ProgramsPage() {
               {row.note && <p className="mt-0.5 text-xs italic text-primary">{row.note}</p>}
               {row.time && <p className="mt-1 text-xs text-muted-foreground">{row.time}</p>}
               <div className="mt-3 space-y-3 border-t border-border pt-3">
-                <div className="flex items-center justify-between gap-3">
-                  <div>
-                    <p className="text-xs font-semibold uppercase text-primary">Fall (Oct 3–Dec 19)</p>
-                    <p className="text-sm text-navy">{row.fall}</p>
+                {showFallAndFullSeason && (
+                  <div className="flex items-center justify-between gap-3">
+                    <div>
+                      <p className="text-xs font-semibold uppercase text-primary">Fall (Oct 3–Dec 19)</p>
+                      <p className="text-sm text-navy">{row.fall}</p>
+                    </div>
+                    <RegisterButton row={row} sessionKey="fall" />
                   </div>
-                  <RegisterButton row={row} sessionKey="fall" />
-                </div>
+                )}
                 <div className="flex items-center justify-between gap-3">
                   <div>
                     <p className="text-xs font-semibold uppercase text-primary">Winter (Jan 9–Apr 24)</p>
@@ -451,13 +468,15 @@ export default function ProgramsPage() {
                   </div>
                   <RegisterButton row={row} sessionKey="winter" />
                 </div>
-                <div className="flex items-center justify-between gap-3">
-                  <div>
-                    <p className="text-xs font-semibold uppercase text-primary">Full Season</p>
-                    <p className="text-sm text-navy">{row.fullSeason}</p>
+                {showFallAndFullSeason && (
+                  <div className="flex items-center justify-between gap-3">
+                    <div>
+                      <p className="text-xs font-semibold uppercase text-primary">Full Season</p>
+                      <p className="text-sm text-navy">{row.fullSeason}</p>
+                    </div>
+                    <RegisterButton row={row} sessionKey="fullSeason" />
                   </div>
-                  <RegisterButton row={row} sessionKey="fullSeason" />
-                </div>
+                )}
               </div>
             </div>
           ))}
