@@ -71,7 +71,7 @@ export default function HomePage() {
                   Skating lessons in Richmond Hill
                 </p>
                 <p className="mt-1 text-2xl font-bold text-navy">
-                  FALL 2026 REGISTRATION IS OPEN
+                  WINTER 2027 REGISTRATION IS OPEN
                 </p>
               </div>
             </div>
@@ -81,7 +81,7 @@ export default function HomePage() {
                 href="/programs"
                 className="inline-block rounded bg-navy px-6 py-2 text-lg font-bold uppercase tracking-wider text-white transition-opacity hover:opacity-90"
               >
-                Register for Fall 2026
+                Register for Winter 2027
               </Link>
             </div>
           </div>
@@ -156,7 +156,7 @@ export default function HomePage() {
                 href="/programs"
                 className="inline-block rounded bg-navy px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-opacity hover:opacity-90"
               >
-                Register for Fall 2026
+                Register for Winter 2027
               </Link>
             </div>
           </div>
